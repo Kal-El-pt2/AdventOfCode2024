@@ -11,11 +11,15 @@ int main(){
     }
     sort(a.begin(),a.end());
     sort(b.begin(),b.end());
-    ll sum =0;
-
+    
+    map<int,int> mp;
     for(int i=0;i<1000;++i){
-        sum+= abs(a[i]-b[i]);
+        mp[b[i]]++;
     }
-    cout<<sum<<endl;
+    int sscore = 0;
+    for(int i=0;i<1000;++i){
+        sscore += a[i] * mp[a[i]];
+    }
+    cout<<sscore<<endl;
     return 0;
 }
